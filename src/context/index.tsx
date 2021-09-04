@@ -29,7 +29,7 @@ const ProvideAuth:React.FC = ({children}) => {
 const fakeAuth = {
     isAuthenticated: false,
     signin(cb:any) {
-
+        
         fakeAuth.isAuthenticated = true;
         setTimeout(cb, 100); // fake async
     },

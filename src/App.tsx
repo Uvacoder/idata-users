@@ -1,13 +1,12 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  Redirect,
   useHistory,
 } from 'react-router-dom';
 import './App.css';
+import PrivateRoute from './components/PrivateRoute';
 import { ProvideAuth, useAuth } from './context';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
@@ -65,33 +64,8 @@ function AuthButton() {
   );
 }
 
-// A wrapper for <Route> that redirects to the login
-// screen if you're not yet authenticated.
-export interface IPrivateRoute {
-  children: React.ReactNode;
-  path: string;
-}
 
-const PrivateRoute: React.FC<IPrivateRoute> = ({ children, ...rest }) => {
-  let auth = useAuth();
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        auth.user ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: location }
-            }}
-          />
-        )
-      }
-    />
-  );
-}
+
 
 function PublicPage() {
   return <h3>Public</h3>;
