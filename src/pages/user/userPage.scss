@@ -22,7 +22,7 @@
 
   &__submit {
     display: block;
-    font-size: 24px;
+    font-size: 16px;
     margin: 2rem auto 0;
     text-align: center;
   }
@@ -37,6 +37,10 @@
           font-size: 24px;
         }
       }
+    }
+
+    &__submit {
+      font-size: 24px;
     }
   }
 }

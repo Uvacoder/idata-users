@@ -105,7 +105,7 @@ const UserPage: React.FC<Props> = () => {
             {isEditing && (
               <button
                 type="submit"
-                className="btn user__submit"
+                className="btn btn-fill user__submit"
                 disabled={validateForm()}
               >
                 Guardar

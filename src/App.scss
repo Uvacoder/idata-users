@@ -45,6 +45,7 @@
   border: solid 2px $color-primary;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   color: $color-primary;
+  cursor: pointer;
   font-style: 18px;
   font-weight: bold;
   margin: 0 1rem;
@@ -54,6 +55,11 @@
   &.btn-danger {
     background-color: rgb(255, 8, 8);
     border: solid 2px rgb(255, 8, 8);
+    color: #fff;
+  }
+
+  &.btn-fill {
+    background-color: $color-primary;
     color: #fff;
   }
 }

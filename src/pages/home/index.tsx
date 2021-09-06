@@ -49,7 +49,10 @@ const HomePage: React.FC = () => {
       <section className="home__wrapper">
         <h2 className="home__cards-title">Lista de usuarios</h2>
         <div className="home__new-user">
-          <button className="btn" onClick={() => history.push("/user/new")}>
+          <button
+            className="btn btn-fill"
+            onClick={() => history.push("/user/new")}
+          >
             Nuevo Usuario
           </button>
         </div>

@@ -1,7 +1,10 @@
 import React, { FormEvent, useState } from "react";
 import { useHistory } from "react-router";
+import GoBack from "../../components/GoBack";
 import UserForm from "../../components/UserForm";
 import usersService from "../../services/usersService";
+import Layout from "../layout";
+import "./newUser.scss";
 
 const NewUser: React.FC = () => {
   let history = useHistory();
@@ -32,31 +35,37 @@ const NewUser: React.FC = () => {
   };
 
   return (
-    <section className="user__wrapper">
-      <div className="user__go-back">
-        <button onClick={() => history.goBack()}>Volver</button>
-      </div>
-      <div className="user__info">
-        <form onSubmit={handleSubmit}>
-          <UserForm
-            isEditing
-            firstName={firstName}
-            setFirstName={setFirstName}
-            lastName={lastName}
-            setLastName={setLastName}
-            email={email}
-            setEmail={setEmail}
-            avatar={avatar}
-            setAvatar={setAvatar}
-          />
-          {isEditing && (
-            <button type="submit" className="btn" disabled={validateForm()}>
-              Guardar
-            </button>
-          )}
-        </form>
-      </div>
-    </section>
+    <>
+      <Layout />
+      <section className="user__wrapper">
+        <h2 className="user__title">Nuevo Usuario</h2>
+        <div className="user__info">
+          <form onSubmit={handleSubmit}>
+            <UserForm
+              isEditing
+              firstName={firstName}
+              setFirstName={setFirstName}
+              lastName={lastName}
+              setLastName={setLastName}
+              email={email}
+              setEmail={setEmail}
+              avatar={avatar}
+              setAvatar={setAvatar}
+            />
+            {isEditing && (
+              <button
+                type="submit"
+                className="btn btn-fill user__submit"
+                disabled={validateForm()}
+              >
+                Guardar
+              </button>
+            )}
+          </form>
+        </div>
+        <GoBack />
+      </section>
+    </>
   );
 };
 
