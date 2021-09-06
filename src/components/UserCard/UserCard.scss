@@ -1,0 +1,74 @@
+@import "../../common";
+
+.card {
+  &__wrapper {
+    border-radius: 14px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.29);
+    display: flex;
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    width: 100%;
+  }
+
+  &__avatar {
+    border-radius: 50%;
+    margin-right: 1rem;
+    width: 35%;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    margin: 0 0 0.5rem;
+  }
+
+  &__email {
+    font-size: 18px;
+    font-style: italic;
+    line-height: 18px;
+    margin: 0;
+  }
+}
+
+@include min-medium-device {
+  .card {
+    &__wrapper {
+      width: 45%;
+    }
+
+    &__avatar {
+      margin-right: 2rem;
+      width: 45%;
+    }
+
+    &__name {
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 26px;
+      margin: 0 0 0.5rem;
+    }
+
+    &__email {
+      font-size: 16px;
+      font-style: italic;
+      line-height: 24px;
+      margin: 0;
+    }
+  }
+}
+
+@include min-large-device {
+  .card {
+    &__wrapper {
+      width: 25%;
+    }
+  }
+}
