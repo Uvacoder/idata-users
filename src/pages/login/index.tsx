@@ -8,6 +8,7 @@ import logo from '../../assets/login-logo.png';
 import instagramLogo from '../../assets/instagram.png';
 import linkedinLogo from '../../assets/linkedin.png';
 import { useAuth } from '../../context';
+// import userService from '../../services/userService';
 
 const LoginPage: React.FC = () => {
   const [user, setUser] = useState<string>('');
@@ -21,14 +22,14 @@ const LoginPage: React.FC = () => {
   let login = () => {
     auth.signin(() => {
       history.replace(from);
-    });
+    },
+    user,
+    passWord);
   };
 
-  console.log('from :>> ', from);
-  console.log('login :>> ', login);
-
-  const handleFormSubmit = (e: FormEvent) => {
+  const handleFormSubmit = async(e: FormEvent) => {
     e.preventDefault();
+    login();
   }
 
   return (
