@@ -43,10 +43,28 @@ async function editUser(payload: IUser) {
   return false;
 }
 
+async function deleteUser(id: string) {
+  const response = await fetch(`${url}/users/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+  });
+
+  console.log(`response`, response);
+
+  if (response && response.status === 204) {
+    return true;
+  }
+
+  return false;
+}
+
 const usersService = {
   getUsers,
   getUser,
   editUser,
+  deleteUser,
 };
 
 export default usersService;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FormEvent } from "react";
-import { useParams } from "react-router";
+import { useParams, useHistory } from "react-router";
 import usersService from "../../services/usersService";
 
 type Props = {};
@@ -9,12 +9,13 @@ type IParams = {
 };
 
 const UserPage: React.FC<Props> = () => {
-  const [firstName, setFirstName] = useState<string | undefined>(undefined);
-  const [lastName, setLastName] = useState<string | undefined>(undefined);
-  const [avatar, setAvatar] = useState<string | undefined>(undefined);
-  const [email, setEmail] = useState<string | undefined>(undefined);
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [avatar, setAvatar] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const { id } = useParams<IParams>();
+  let history = useHistory();
 
   const getUserData = async (id: string) => {
     const response = await usersService.getUser(id);
@@ -50,6 +51,13 @@ const UserPage: React.FC<Props> = () => {
     }
   };
 
+  const handleDelete = async () => {
+    const response = await usersService.deleteUser(id);
+    if (response) {
+      history.push("/");
+    }
+  };
+
   const validateForm = () => {
     if (firstName && lastName && avatar && email) return false;
     return true;
@@ -65,7 +73,11 @@ const UserPage: React.FC<Props> = () => {
         >
           {isEditing ? "Cancelar" : "Editar"}
         </button>
-        <button className="user__actions-delete" type="button">
+        <button
+          onClick={handleDelete}
+          className="user__actions-delete"
+          type="button"
+        >
           Eliminar
         </button>
       </div>
