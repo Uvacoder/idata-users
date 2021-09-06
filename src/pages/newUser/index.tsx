@@ -50,11 +50,7 @@ const NewUser: React.FC = () => {
             setAvatar={setAvatar}
           />
           {isEditing && (
-            <button
-              type="submit"
-              className="user__form-button"
-              disabled={validateForm()}
-            >
+            <button type="submit" className="btn" disabled={validateForm()}>
               Guardar
             </button>
           )}

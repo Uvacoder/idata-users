@@ -1,4 +1,5 @@
 import React from "react";
+import "./UserForm.scss";
 
 type Props = {
   isEditing: boolean;

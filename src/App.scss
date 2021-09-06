@@ -1,3 +1,5 @@
+@import "./common";
+
 .App {
   text-align: center;
 }
@@ -34,5 +36,24 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.btn {
+  background: #fff;
+  border-radius: 14px;
+  border: solid 2px $color-primary;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  color: $color-primary;
+  font-style: 18px;
+  font-weight: bold;
+  margin: 0 1rem;
+  outline: none;
+  padding: 0.5rem 1rem;
+
+  &.btn-danger {
+    background-color: rgb(255, 8, 8);
+    border: solid 2px rgb(255, 8, 8);
+    color: #fff;
   }
 }

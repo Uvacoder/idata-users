@@ -1,7 +1,10 @@
 import React, { useState, useEffect, FormEvent } from "react";
 import { useParams, useHistory } from "react-router";
+import GoBack from "../../components/GoBack";
 import UserForm from "../../components/UserForm";
 import usersService from "../../services/usersService";
+import Layout from "../layout";
+import "./userPage.scss";
 
 type Props = {};
 
@@ -67,51 +70,52 @@ const UserPage: React.FC<Props> = () => {
   };
 
   return (
-    <section className="user__wrapper">
-      <div className="user__go-back">
-        <button onClick={() => history.goBack()}>Volver</button>
-      </div>
-      <div className="user__actions-wrapper">
-        <button
-          className="user__actions-edit"
-          type="button"
-          onClick={() => setIsEditing(!isEditing)}
-        >
-          {isEditing ? "Cancelar" : "Editar"}
-        </button>
-        <button
-          onClick={handleDelete}
-          className="user__actions-delete"
-          type="button"
-        >
-          Eliminar
-        </button>
-      </div>
-      <div className="user__info">
-        <form onSubmit={handleSubmit}>
-          <UserForm
-            isEditing={isEditing}
-            firstName={firstName}
-            setFirstName={setFirstName}
-            lastName={lastName}
-            setLastName={setLastName}
-            email={email}
-            setEmail={setEmail}
-            avatar={avatar}
-            setAvatar={setAvatar}
-          />
-          {isEditing && (
-            <button
-              type="submit"
-              className="user__form-button"
-              disabled={validateForm()}
-            >
-              Guardar
-            </button>
-          )}
-        </form>
-      </div>
-    </section>
+    <>
+      <Layout />
+      <section className="user__wrapper">
+        <div className="user__actions-wrapper">
+          <button
+            className="btn"
+            type="button"
+            onClick={() => setIsEditing(!isEditing)}
+          >
+            {isEditing ? "Cancelar" : "Editar"}
+          </button>
+          <button
+            onClick={handleDelete}
+            className="btn btn-danger"
+            type="button"
+          >
+            Eliminar
+          </button>
+        </div>
+        <div className="user__info">
+          <form onSubmit={handleSubmit}>
+            <UserForm
+              isEditing={isEditing}
+              firstName={firstName}
+              setFirstName={setFirstName}
+              lastName={lastName}
+              setLastName={setLastName}
+              email={email}
+              setEmail={setEmail}
+              avatar={avatar}
+              setAvatar={setAvatar}
+            />
+            {isEditing && (
+              <button
+                type="submit"
+                className="btn user__submit"
+                disabled={validateForm()}
+              >
+                Guardar
+              </button>
+            )}
+          </form>
+        </div>
+        <GoBack />
+      </section>
+    </>
   );
 };
 

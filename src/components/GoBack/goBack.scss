@@ -1,0 +1,15 @@
+@import "../../common";
+
+.go-back {
+  text-align: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+@include min-large-device {
+  .go-back {
+    > button {
+      font-size: 24px;
+    }
+  }
+}

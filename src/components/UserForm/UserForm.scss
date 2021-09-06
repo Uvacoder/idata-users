@@ -1,0 +1,65 @@
+@import "../../common";
+
+.user {
+  &__form {
+    &-group {
+      border: solid 1px #707070;
+      border-radius: 0.875rem;
+      margin-top: 2.75rem;
+      padding: 1rem;
+      position: relative;
+
+      > label {
+        background-color: white;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: bold;
+        position: absolute;
+        left: 12px;
+        padding: 0 10px;
+        text-transform: uppercase;
+        top: -10px;
+      }
+    }
+
+    &-input {
+      border: none;
+      font-size: 18px;
+      line-height: 22px;
+      padding: 0.25rem;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+@include min-large-device {
+  .user {
+    &__form {
+      &-group {
+        > label {
+          background-color: white;
+          font-size: 22px;
+          line-height: 25px;
+          font-weight: bold;
+          position: absolute;
+          left: 12px;
+          padding: 0 10px;
+          text-transform: uppercase;
+          top: -10px;
+        }
+      }
+
+      &-input {
+        border: none;
+        font-size: 1.625rem;
+        line-height: 1.875rem;
+        padding: 0.25rem;
+        width: 100%;
+      }
+    }
+  }
+}
