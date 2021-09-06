@@ -19,7 +19,6 @@ const UserPage: React.FC<Props> = () => {
   const getUserData = async (id: string) => {
     const response = await usersService.getUser(id);
     if (response) {
-      console.log("response :>> ", response);
       const { first_name, last_name, avatar, email } = response.data;
       setFirstName(first_name);
       setLastName(last_name);
@@ -32,9 +31,28 @@ const UserPage: React.FC<Props> = () => {
     getUserData(id);
   }, [id]);
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    console.log("firstName :>> ", firstName);
+    const payload = {
+      firstName,
+      lastName,
+      avatar,
+      email,
+    };
+
+    const response = await usersService.editUser(payload);
+    if (response) {
+      setFirstName(response.firstName);
+      setLastName(response.lastName);
+      setAvatar(response.avatar);
+      setEmail(response.email);
+      setIsEditing(false);
+    }
+  };
+
+  const validateForm = () => {
+    if (firstName && lastName && avatar && email) return false;
+    return true;
   };
 
   return (
@@ -102,7 +120,11 @@ const UserPage: React.FC<Props> = () => {
             />
           </div>
           {isEditing && (
-            <button type="submit" className="user__form-button">
+            <button
+              type="submit"
+              className="user__form-button"
+              disabled={validateForm()}
+            >
               Guardar
             </button>
           )}
