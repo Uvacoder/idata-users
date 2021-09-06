@@ -1,0 +1,39 @@
+$color-primary: #00A0E6;
+$color-grayscale-1: #222;
+$color-grayscale-2: #212121;
+
+/* Extra small devices (phones, 600px and down) */
+@mixin max-small-device {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @mixin min-small-device {
+    @media only screen and (min-width: 600px) {
+      @content;
+    }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @mixin min-medium-device {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @mixin min-large-device {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @mixin min-extra-large-device {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+  
