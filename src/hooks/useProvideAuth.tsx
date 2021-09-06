@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fakeAuth } from '../context';
+import { Auth } from '../context';
 
 function useProvideAuth() {
   const [user, setUser] = useState<null | string>(localStorage.getItem('token') || null);
@@ -10,7 +10,7 @@ function useProvideAuth() {
   }, [])
 
   const signin = (cb: () => void, user: string, password: string) => {
-    return fakeAuth.signin(() => {
+    return Auth.signin(() => {
       setUser(user);
       cb();
     },
@@ -19,7 +19,7 @@ function useProvideAuth() {
   };
 
   const signout = (cb: () => void) => {
-    return fakeAuth.signout(() => {
+    return Auth.signout(() => {
       setUser(null);
       cb();
     });

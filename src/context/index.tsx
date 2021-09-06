@@ -27,15 +27,15 @@ const ProvideAuth:React.FC = ({children}) => {
     );
 }
 
-const fakeAuth = {
+const Auth = {
 	isAuthenticated: true,
 	async signin(cb: () => void, user: string, password: string) {
 		const response = await userService.signin(user, password);
-		fakeAuth.isAuthenticated = response;
+		Auth.isAuthenticated = response;
 		setTimeout(cb, 1000);
 	},
 	signout(cb: () => void) {
-		fakeAuth.isAuthenticated = false;
+		Auth.isAuthenticated = false;
 		setTimeout(cb, 100);
 	}
 };
@@ -44,5 +44,5 @@ export {
     useAuth,
     useProvideAuth,
     ProvideAuth,
-    fakeAuth
+    Auth
 }
