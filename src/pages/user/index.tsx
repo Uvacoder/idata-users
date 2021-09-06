@@ -65,6 +65,9 @@ const UserPage: React.FC<Props> = () => {
 
   return (
     <section className="user__wrapper">
+      <div className="user__go-back">
+        <button onClick={() => history.goBack()}>Volver</button>
+      </div>
       <div className="user__actions-wrapper">
         <button
           className="user__actions-edit"
