@@ -58,9 +58,21 @@ const HomePage = () => {
 			))}
 			<div>
 				<p>Total de usuarios: {total}</p>
-				<button type="button" onClick={() => changePage(-1)}>Anterior</button>
+				<button
+					type="button"
+					onClick={() => changePage(-1)}
+					disabled={page === 0}
+					>
+						Anterior
+					</button>
 				<span>página {page} de {totalPages}</span>
-				<button type="button" onClick={() => changePage(1)}>Siguiente</button>
+				<button
+					type="button"
+					onClick={() => changePage(1)}
+					disabled={page === totalPages}
+					>
+						Siguiente
+					</button>
 			</div>
 		</section>
 	);
