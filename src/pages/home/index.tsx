@@ -6,7 +6,7 @@ import usersService from "../../services/usersService";
 import "./homePage.scss";
 
 export interface User {
-  id?: number;
+  id: number;
   first_name: string;
   last_name: string;
   email: string;
@@ -59,6 +59,7 @@ const HomePage = () => {
           users.map((user) => (
             <UserCard
               key={user.id}
+              id={user.id}
               firstName={user.first_name}
               lastName={user.last_name}
               avatar={user.avatar}

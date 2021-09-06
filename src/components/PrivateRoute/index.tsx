@@ -5,6 +5,7 @@ import { useAuth } from "../../context";
 export interface IPrivateRoute {
   children: React.ReactNode;
   path: string;
+  exact?: boolean;
 }
 
 const PrivateRoute: React.FC<IPrivateRoute> = ({ children, ...rest }) => {
