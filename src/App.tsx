@@ -5,7 +5,7 @@ import {
   Link,
   useHistory,
 } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import PrivateRoute from './components/PrivateRoute';
 import { ProvideAuth, useAuth } from './context';
 import HomePage from './pages/home';
