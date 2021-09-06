@@ -1,6 +1,6 @@
 import { useContext, createContext } from "react";
 import useProvideAuth from "../hooks/useProvideAuth";
-import userService from "../services/userService";
+import userService from "../services/authService";
 
 export interface IAuthContext {
 	user: string | null;

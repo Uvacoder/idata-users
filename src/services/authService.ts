@@ -25,7 +25,7 @@ async function signin(user: string, password: string) {
 }
 
 const userService = {
-  signin
+  signin,
 };
 
 export default userService;
