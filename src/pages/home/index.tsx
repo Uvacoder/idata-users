@@ -15,6 +15,8 @@ const HomePage = () => {
       >
         Salir
       </button>
+
+
 		</section>
 	);
 }

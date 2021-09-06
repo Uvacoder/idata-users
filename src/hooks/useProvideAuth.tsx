@@ -11,7 +11,7 @@ function useProvideAuth() {
 
   const signin = (cb: () => void, user: string, password: string) => {
     return Auth.signin(() => {
-      setUser(user);
+      setUser(localStorage.getItem('token') ? user : null);
       cb();
     },
     user,

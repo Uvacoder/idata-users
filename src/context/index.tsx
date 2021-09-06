@@ -28,13 +28,14 @@ const ProvideAuth:React.FC = ({children}) => {
 }
 
 const Auth = {
-	isAuthenticated: true,
+	isAuthenticated: false,
 	async signin(cb: () => void, user: string, password: string) {
 		const response = await userService.signin(user, password);
 		Auth.isAuthenticated = response;
 		setTimeout(cb, 1000);
 	},
 	signout(cb: () => void) {
+        localStorage.clear();
 		Auth.isAuthenticated = false;
 		setTimeout(cb, 100);
 	}

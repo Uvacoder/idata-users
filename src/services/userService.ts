@@ -14,7 +14,7 @@ async function signin(user: string, password: string) {
 		},
 		body: JSON.stringify({email: user, password})
 	});
-	
+
 	if (response && response.status === 200) {
 		const {token}: JSONResponse = await response.json();
 		localStorage.setItem("token", token);		
