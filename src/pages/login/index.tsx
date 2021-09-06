@@ -4,6 +4,9 @@ import {
   useLocation
 } from 'react-router';
 import './loginPage.scss';
+import logo from '../../assets/login-logo.png';
+import instagramLogo from '../../assets/instagram.png';
+import linkedinLogo from '../../assets/linkedin.png';
 import { useAuth } from '../../context';
 
 const LoginPage: React.FC = () => {
@@ -30,9 +33,9 @@ const LoginPage: React.FC = () => {
         </p>
       </div>
       <div className="login__form-wrapper">
-        <img src="" alt="" className="login__form-image" />
+        <img src={logo} alt="logo" className="login__form-image" />
         <h2 className="login__form-title">Contáctame</h2>
-        <form action="" className="login__form">
+        <form action="" className="login__form-data">
           <div className="login__form-group">
             <label htmlFor="user">Usuario</label>
             <input type="text" id="user" className="login__form-input" />
@@ -41,11 +44,22 @@ const LoginPage: React.FC = () => {
             <label htmlFor="password">Contraseña</label>
             <input type="password" id="password" className="login__form-input" />
           </div>
-          <div className="login__forgot-password">
-            <a href="#" className="login__forgot-password-link">Olvidé mi contraseña</a>
+          <div className="login__form-forgot-password">
+            <a href="www.google.com" className="login__form-forgot-password-link">Olvidé mi contraseña</a>
           </div>
-          <button className="login__submit-button">Ingresar</button>
+          <button className="login__form-submit-button">Ingresar</button>
         </form>
+        <div className="login__social-wrapper">
+          <p className="login__social-text">Siguenos en nuestras redes sociales</p>
+          <div className="login__social-icons">
+            <a href="www.linkeding.com" target="_blank">
+              <img src={linkedinLogo} alt="Linkedin" />
+            </a>
+            <a href="www.instagram.com" target="_blank">
+              <img src={instagramLogo} alt="Instagram" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

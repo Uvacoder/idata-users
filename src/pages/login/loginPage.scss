@@ -1,0 +1,140 @@
+@import '../../_common.scss';
+
+.login {
+	&__page {
+		display: flex;
+		height: 100vh;
+	}
+
+	&__banner {
+		&-wrapper {
+			background-image: url('../../assets/fondo.png');
+			background-size: cover;
+			padding: 6rem 5.25rem;
+			width: 65%;
+		}
+
+		&-title {
+			font-size: 5.25rem;
+			line-height: 6.1875rem;
+			font-weight: bold;
+			margin: 0;
+		}
+
+		&-text {
+			color: $color-grayscale-1;
+			font-size: 2.125rem;
+			line-height: 2.5rem;
+			width: 50%;
+
+			&--brand {
+				color: $color-primary;
+				font-family: 'Pacifico';
+			}
+		}
+	}
+
+	&__form {
+		&-wrapper {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 0 4.875rem;
+			width: 35%;
+		}
+
+		&-image {
+			max-width: 170px;
+			width: 100%;
+		}
+
+		&-title {
+			color: $color-primary;
+			font-size: 5.25rem;
+			font-family: 'Pacifico';
+			margin: 0;
+		}
+
+		&-data {
+			width: 100%;
+		}
+
+		&-group {
+			border: solid 1px #707070;
+			border-radius: 0.875rem;
+			margin-top: 2.75rem;
+			padding: 1rem;
+			position: relative;
+
+			> label {
+				background-color:white;
+				font-size: 22px;
+				line-height: 25px;
+				font-weight: bold;
+				position: absolute;
+				left: 12px;
+				padding: 0 10px;
+				text-transform: uppercase;
+				top: -10px;
+			}
+		}
+
+		&-input {
+			border: none;
+			font-size: 1.625rem;
+			line-height: 1.875rem;
+			padding: 0.25rem;
+			width: 100%;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		&-forgot-password {
+			margin-top: 20px;
+			text-align: right;
+			width: 100%;
+
+			&-link {
+				color: #212121;
+				font-size: 20px;
+				line-height: 24px;
+				text-decoration: underline;
+			}
+		}
+
+		&-submit-button {
+			background-color: #1AA0E6;
+			border: none;
+			border-radius: 14px;
+			box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.29);
+			color: #fff;
+			font-size: 22px;
+			font-weight: bold;
+			line-height: 25px;
+			margin-top: 90px;
+			padding: 22px 0;
+			text-transform: uppercase;
+			width: 100%;
+		}
+	}
+
+	&__social {
+		&-text {
+			color: $color-grayscale-2;
+			font-size: 20px;
+			line-height: 24px;
+		}
+
+		&-icons {
+			text-align: center;
+			width: 100%;
+
+			> a:first-child {
+				margin-right: 32px;
+			}
+		}
+	}
+}

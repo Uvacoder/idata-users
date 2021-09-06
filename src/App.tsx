@@ -2,8 +2,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useHistory,
+  // Link,
+  // useHistory,
 } from 'react-router-dom';
 import './App.scss';
 import PrivateRoute from './components/PrivateRoute';
@@ -15,7 +15,7 @@ function App() {
   return (
     <ProvideAuth>
       <Router>
-        <div>
+        {/* <div>
           <AuthButton />
 
           <ul>
@@ -25,7 +25,7 @@ function App() {
             <li>
               <Link to="/">Home Page</Link>
             </li>
-          </ul>
+          </ul> */}
 
           <Switch>
             <Route path="/public">
@@ -38,13 +38,13 @@ function App() {
               <HomePage />
             </PrivateRoute>
           </Switch>
-        </div>
+        {/* </div> */}
       </Router>
     </ProvideAuth>
   );
 }
 
-function AuthButton() {
+/* function AuthButton() {
   let history = useHistory();
   let auth = useAuth();
 
@@ -62,7 +62,7 @@ function AuthButton() {
   ) : (
     <p>You are not logged in.</p>
   );
-}
+} */
 
 
 
