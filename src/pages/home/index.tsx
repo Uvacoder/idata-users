@@ -54,6 +54,9 @@ const HomePage = () => {
         Salir
       </button>
       <h2 className="home__cards-title">Lista de usuarios</h2>
+      <div className="home__new-user">
+        <button onClick={() => history.push("/user/new")}>Nuevo Usuario</button>
+      </div>
       <div className="home__cards-wrapper">
         {users &&
           users.map((user) => (

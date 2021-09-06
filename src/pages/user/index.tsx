@@ -1,5 +1,6 @@
 import React, { useState, useEffect, FormEvent } from "react";
 import { useParams, useHistory } from "react-router";
+import UserForm from "../../components/UserForm";
 import usersService from "../../services/usersService";
 
 type Props = {};
@@ -35,6 +36,7 @@ const UserPage: React.FC<Props> = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     const payload = {
+      id,
       firstName,
       lastName,
       avatar,
@@ -42,6 +44,7 @@ const UserPage: React.FC<Props> = () => {
     };
 
     const response = await usersService.editUser(payload);
+
     if (response) {
       setFirstName(response.firstName);
       setLastName(response.lastName);
@@ -86,54 +89,17 @@ const UserPage: React.FC<Props> = () => {
       </div>
       <div className="user__info">
         <form onSubmit={handleSubmit}>
-          <div className="user__form-group">
-            <label htmlFor="firstName">Nombre</label>
-            <input
-              type="text"
-              id="firstName"
-              className="user__form-input"
-              value={firstName}
-              name="firstName"
-              onChange={(e) => setFirstName(e.target.value)}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="user__form-group">
-            <label htmlFor="firstName">Apellido</label>
-            <input
-              type="text"
-              id="lastName"
-              className="user__form-input"
-              value={lastName}
-              name="lastName"
-              onChange={(e) => setLastName(e.target.value)}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="user__form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              className="user__form-input"
-              value={email}
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={!isEditing}
-            />
-          </div>
-          <div className="user__form-group">
-            <label htmlFor="avatar">URL Imagen</label>
-            <input
-              type="text"
-              id="avatar"
-              className="user__form-input"
-              value={avatar}
-              name="avatar"
-              onChange={(e) => setAvatar(e.target.value)}
-              disabled={!isEditing}
-            />
-          </div>
+          <UserForm
+            isEditing={isEditing}
+            firstName={firstName}
+            setFirstName={setFirstName}
+            lastName={lastName}
+            setLastName={setLastName}
+            email={email}
+            setEmail={setEmail}
+            avatar={avatar}
+            setAvatar={setAvatar}
+          />
           {isEditing && (
             <button
               type="submit"

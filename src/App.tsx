@@ -4,6 +4,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import { ProvideAuth } from "./context";
 import HomePage from "./pages/home";
 import LoginPage from "./pages/login";
+import NewUser from "./pages/newUser";
 import UserPage from "./pages/user";
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <PrivateRoute exact path="/">
             <HomePage />
+          </PrivateRoute>
+          <PrivateRoute exact path="/user/new">
+            <NewUser />
           </PrivateRoute>
           <PrivateRoute path="/user/:id">
             <UserPage />

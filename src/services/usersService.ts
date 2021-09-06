@@ -1,4 +1,5 @@
 type IUser = {
+  id?: string;
   firstName?: string;
   lastName?: string;
   email?: string;
@@ -28,7 +29,7 @@ async function getUser(id: string) {
 }
 
 async function editUser(payload: IUser) {
-  const response = await fetch(`${url}/users`, {
+  const response = await fetch(`${url}/users/${payload.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -51,9 +52,23 @@ async function deleteUser(id: string) {
     },
   });
 
-  console.log(`response`, response);
-
   if (response && response.status === 204) {
+    return true;
+  }
+
+  return false;
+}
+
+async function newUser(payload: IUser) {
+  const response = await fetch(`${url}/users`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (response) {
     return true;
   }
 
@@ -65,6 +80,7 @@ const usersService = {
   getUser,
   editUser,
   deleteUser,
+  newUser,
 };
 
 export default usersService;
